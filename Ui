@@ -6,23 +6,113 @@ local cg    = game:GetService("CoreGui")
 local rs    = game:GetService("RunService")
 local stats = game:GetService("Stats")
 
-ScyLib.theme = {
-    BG         = Color3.fromRGB(10,14,24),
-    Panel      = Color3.fromRGB(15,21,36),
-    PanelLight = Color3.fromRGB(20,30,52),
-    PanelAlt   = Color3.fromRGB(17,25,44),
-    Accent     = Color3.fromRGB(56,139,255),
-    AccentDim  = Color3.fromRGB(30,80,180),
-    AccentGlow = Color3.fromRGB(100,180,255),
-    StrokeLight= Color3.fromRGB(55,75,120),
-    Text       = Color3.fromRGB(130,180,255),
-    TextDim    = Color3.fromRGB(80,130,220),
-    TextMuted  = Color3.fromRGB(50,90,170),
-    Success    = Color3.fromRGB(60,220,130),
-    Warning    = Color3.fromRGB(255,200,60),
-    Danger     = Color3.fromRGB(255,80,80),
+ScyLib.themes = {
+    Blue = {
+        BG         = Color3.fromRGB(10,14,24),
+        Panel      = Color3.fromRGB(15,21,36),
+        PanelLight = Color3.fromRGB(20,30,52),
+        PanelAlt   = Color3.fromRGB(17,25,44),
+        Accent     = Color3.fromRGB(56,139,255),
+        AccentDim  = Color3.fromRGB(30,80,180),
+        AccentGlow = Color3.fromRGB(100,180,255),
+        Text       = Color3.fromRGB(130,180,255),
+        TextDim    = Color3.fromRGB(80,130,220),
+        TextMuted  = Color3.fromRGB(50,90,170),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
+    Red = {
+        BG         = Color3.fromRGB(24,10,10),
+        Panel      = Color3.fromRGB(36,15,15),
+        PanelLight = Color3.fromRGB(52,20,20),
+        PanelAlt   = Color3.fromRGB(44,17,17),
+        Accent     = Color3.fromRGB(255,56,56),
+        AccentDim  = Color3.fromRGB(180,30,30),
+        AccentGlow = Color3.fromRGB(255,100,100),
+        Text       = Color3.fromRGB(255,130,130),
+        TextDim    = Color3.fromRGB(220,80,80),
+        TextMuted  = Color3.fromRGB(170,50,50),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
+    Green = {
+        BG         = Color3.fromRGB(10,24,14),
+        Panel      = Color3.fromRGB(15,36,21),
+        PanelLight = Color3.fromRGB(20,52,30),
+        PanelAlt   = Color3.fromRGB(17,44,25),
+        Accent     = Color3.fromRGB(56,255,100),
+        AccentDim  = Color3.fromRGB(30,180,60),
+        AccentGlow = Color3.fromRGB(100,255,140),
+        Text       = Color3.fromRGB(130,255,160),
+        TextDim    = Color3.fromRGB(80,220,110),
+        TextMuted  = Color3.fromRGB(50,170,80),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
+    Purple = {
+        BG         = Color3.fromRGB(14,10,24),
+        Panel      = Color3.fromRGB(21,15,36),
+        PanelLight = Color3.fromRGB(30,20,52),
+        PanelAlt   = Color3.fromRGB(25,17,44),
+        Accent     = Color3.fromRGB(139,56,255),
+        AccentDim  = Color3.fromRGB(80,30,180),
+        AccentGlow = Color3.fromRGB(180,100,255),
+        Text       = Color3.fromRGB(180,130,255),
+        TextDim    = Color3.fromRGB(130,80,220),
+        TextMuted  = Color3.fromRGB(90,50,170),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
+    Pink = {
+        BG         = Color3.fromRGB(24,10,18),
+        Panel      = Color3.fromRGB(36,15,28),
+        PanelLight = Color3.fromRGB(52,20,40),
+        PanelAlt   = Color3.fromRGB(44,17,34),
+        Accent     = Color3.fromRGB(255,56,180),
+        AccentDim  = Color3.fromRGB(180,30,120),
+        AccentGlow = Color3.fromRGB(255,100,200),
+        Text       = Color3.fromRGB(255,130,210),
+        TextDim    = Color3.fromRGB(220,80,170),
+        TextMuted  = Color3.fromRGB(170,50,130),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
+    White = {
+        BG         = Color3.fromRGB(220,220,225),
+        Panel      = Color3.fromRGB(200,200,210),
+        PanelLight = Color3.fromRGB(185,185,198),
+        PanelAlt   = Color3.fromRGB(195,195,208),
+        Accent     = Color3.fromRGB(56,139,255),
+        AccentDim  = Color3.fromRGB(30,80,180),
+        AccentGlow = Color3.fromRGB(100,180,255),
+        Text       = Color3.fromRGB(30,30,60),
+        TextDim    = Color3.fromRGB(60,60,100),
+        TextMuted  = Color3.fromRGB(100,100,140),
+        Success    = Color3.fromRGB(30,180,90),
+        Warning    = Color3.fromRGB(200,140,0),
+        Danger     = Color3.fromRGB(200,40,40),
+    },
+    Black = {
+        BG         = Color3.fromRGB(5,5,5),
+        Panel      = Color3.fromRGB(12,12,12),
+        PanelLight = Color3.fromRGB(20,20,20),
+        PanelAlt   = Color3.fromRGB(16,16,16),
+        Accent     = Color3.fromRGB(200,200,200),
+        AccentDim  = Color3.fromRGB(120,120,120),
+        AccentGlow = Color3.fromRGB(255,255,255),
+        Text       = Color3.fromRGB(200,200,200),
+        TextDim    = Color3.fromRGB(140,140,140),
+        TextMuted  = Color3.fromRGB(80,80,80),
+        Success    = Color3.fromRGB(60,220,130),
+        Warning    = Color3.fromRGB(255,200,60),
+        Danger     = Color3.fromRGB(255,80,80),
+    },
 }
-local theme = ScyLib.theme
 
 local function new(class, parent, props)
     local o = Instance.new(class)
@@ -73,7 +163,7 @@ local function draggable(f)
     end)
 end
 
-local function baseFrame(parent, h)
+local function baseFrame(parent, h, theme)
     local f = new("Frame", parent, {
         Size = UDim2.new(1,-4, 0, h or 38),
         BackgroundColor3 = theme.Panel,
@@ -86,7 +176,7 @@ local function baseFrame(parent, h)
     return f
 end
 
-local function elemLabel(parent, text)
+local function elemLabel(parent, text, theme)
     return new("TextLabel", parent, {
         Text = text,
         Font = Enum.Font.GothamBold,
@@ -100,7 +190,7 @@ local function elemLabel(parent, text)
     })
 end
 
-local function accentBar(parent, active)
+local function accentBar(parent, active, theme)
     local bar = new("Frame", parent, {
         Size = UDim2.new(0,3, 0.6, 0),
         Position = UDim2.new(0,6, 0.2, 0),
@@ -111,7 +201,7 @@ local function accentBar(parent, active)
     return bar
 end
 
-local function addSection(container, text)
+local function addSection(container, text, theme)
     local f = new("Frame", container, {
         Size = UDim2.new(1,-4, 0, 22),
         BackgroundTransparency = 1,
@@ -138,10 +228,10 @@ local function addSection(container, text)
     return f
 end
 
-local function addButton(container, data)
-    local f = baseFrame(container, 40)
-    local bar = accentBar(f, true)
-    local lbl = elemLabel(f, data.Name or "Button")
+local function addButton(container, data, theme)
+    local f = baseFrame(container, 40, theme)
+    local bar = accentBar(f, true, theme)
+    local lbl = elemLabel(f, data.Name or "Button", theme)
     local arrow = new("TextLabel", f, {
         Text = ">",
         TextColor3 = theme.TextDim,
@@ -171,10 +261,10 @@ local function addButton(container, data)
     return f
 end
 
-local function addToggle(container, data)
-    local f = baseFrame(container, 40)
-    local bar = accentBar(f, data.Default)
-    elemLabel(f, data.Name or "Toggle")
+local function addToggle(container, data, theme)
+    local f = baseFrame(container, 40, theme)
+    local bar = accentBar(f, data.Default, theme)
+    elemLabel(f, data.Name or "Toggle", theme)
     local track = new("Frame", f, {
         Size = UDim2.new(0,46, 0, 22),
         Position = UDim2.new(1,-58, 0.5, -11),
@@ -211,13 +301,13 @@ local function addToggle(container, data)
     return f
 end
 
-local function addDropdown(container, data)
+local function addDropdown(container, data, theme)
     local options = data.Options or {}
     local default = data.Default or options[1]
     local cb = data.Callback or function() end
-    local f = baseFrame(container, 40)
+    local f = baseFrame(container, 40, theme)
     f.ClipsDescendants = false
-    elemLabel(f, data.Name or "Dropdown")
+    elemLabel(f, data.Name or "Dropdown", theme)
     local valBg = new("Frame", f, {
         Size = UDim2.new(0,140, 0, 26),
         Position = UDim2.new(1,-152, 0.5, -13),
@@ -247,24 +337,26 @@ local function addDropdown(container, data)
         BackgroundTransparency = 1,
         ZIndex = 7,
     })
-    local listBg = new("Frame", f, {
-        Size = UDim2.new(1,0, 0, 0),
-        Position = UDim2.new(0,0, 1, 4),
+
+    local screenGui = cg:FindFirstChild("ScyUI")
+    local listBg = new("Frame", screenGui, {
+        Size = UDim2.new(0,0, 0,0),
         BackgroundColor3 = theme.Panel,
         BackgroundTransparency = 0.05,
         Visible = false,
-        ZIndex = 10,
+        ZIndex = 100,
         ClipsDescendants = true,
     })
     corner(listBg, UDim.new(0,7))
+
     local listScroll = new("ScrollingFrame", listBg, {
-        Size = UDim2.new(1,0, 1, 0),
+        Size = UDim2.new(1,0, 1,0),
         BackgroundTransparency = 1,
         ScrollBarThickness = 3,
         ScrollBarImageColor3 = theme.AccentDim,
         AutomaticCanvasSize = Enum.AutomaticSize.Y,
-        CanvasSize = UDim2.new(0,0, 0, 0),
-        ZIndex = 11,
+        CanvasSize = UDim2.new(0,0, 0,0),
+        ZIndex = 101,
     })
     new("UIListLayout", listScroll, {Padding = UDim.new(0,3)})
     new("UIPadding", listScroll, {
@@ -273,16 +365,51 @@ local function addDropdown(container, data)
         PaddingTop    = UDim.new(0,5),
         PaddingBottom = UDim.new(0,5),
     })
+
     local open = false
+    local listH = math.min(#options * 28 + 10, 140)
+
+    local function updateListPos()
+        local absPos  = f.AbsolutePosition
+        local absSize = f.AbsoluteSize
+        local screenH = workspace.CurrentCamera.ViewportSize.Y
+        local spaceBelow = screenH - (absPos.Y + absSize.Y)
+        local spaceAbove = absPos.Y
+
+        local finalH = math.min(listH, math.max(spaceBelow, spaceAbove) - 8)
+        local posY
+        if spaceBelow >= finalH or spaceBelow >= spaceAbove then
+            posY = absPos.Y + absSize.Y + 4
+        else
+            posY = absPos.Y - finalH - 4
+        end
+
+        listBg.Position = UDim2.new(0, absPos.X, 0, posY)
+        listBg.Size     = UDim2.new(0, absSize.X, 0, open and finalH or 0)
+    end
+
     local function setOpen(v)
         open = v
-        listBg.Visible = v
+        if v then
+            updateListPos()
+            listBg.Visible = true
+        end
         tween(chevron, 0.18, {Rotation = v and 180 or 0}):Play()
-        tween(listBg,  0.2,  {Size = v
-            and UDim2.new(1,0, 0, math.min(#options*28+10, 140))
-            or  UDim2.new(1,0, 0, 0)
+        local absSize = f.AbsoluteSize
+        local screenH = workspace.CurrentCamera.ViewportSize.Y
+        local absPos  = f.AbsolutePosition
+        local spaceBelow = screenH - (absPos.Y + absSize.Y)
+        local spaceAbove = absPos.Y
+        local finalH = math.min(listH, math.max(spaceBelow, spaceAbove) - 8)
+        tween(listBg, 0.2, {Size = v
+            and UDim2.new(0, absSize.X, 0, finalH)
+            or  UDim2.new(0, absSize.X, 0, 0)
         }):Play()
+        if not v then
+            task.delay(0.21, function() listBg.Visible = false end)
+        end
     end
+
     for _, opt in options do
         local active = opt == default
         local ob = new("TextButton", listScroll, {
@@ -291,7 +418,7 @@ local function addDropdown(container, data)
             BackgroundTransparency = active and 0.4 or 0.6,
             Text = "",
             AutoButtonColor = false,
-            ZIndex = 12,
+            ZIndex = 102,
         })
         corner(ob, UDim.new(0,5))
         new("TextLabel", ob, {
@@ -303,7 +430,7 @@ local function addDropdown(container, data)
             Position = UDim2.new(0,8, 0, 0),
             BackgroundTransparency = 1,
             TextXAlignment = Enum.TextXAlignment.Left,
-            ZIndex = 13,
+            ZIndex = 103,
         })
         ob.MouseButton1Click:Connect(function()
             for _, b in listScroll:GetChildren() do
@@ -321,20 +448,37 @@ local function addDropdown(container, data)
             setOpen(false)
         end)
     end
+
     new("TextButton", valBg, {
-        Size = UDim2.new(1,0, 1, 0),
+        Size = UDim2.new(1,0, 1,0),
         BackgroundTransparency = 1,
         Text = "",
         ZIndex = 8,
     }).MouseButton1Click:Connect(function() setOpen(not open) end)
+
+    uis.InputBegan:Connect(function(i)
+        if i.UserInputType == Enum.UserInputType.MouseButton1 and open then
+            local mp = uis:GetMouseLocation()
+            local lp2 = listBg.AbsolutePosition
+            local ls2 = listBg.AbsoluteSize
+            if mp.X < lp2.X or mp.X > lp2.X+ls2.X or mp.Y < lp2.Y or mp.Y > lp2.Y+ls2.Y then
+                local fp = f.AbsolutePosition
+                local fs = f.AbsoluteSize
+                if not(mp.X >= fp.X and mp.X <= fp.X+fs.X and mp.Y >= fp.Y and mp.Y <= fp.Y+fs.Y) then
+                    setOpen(false)
+                end
+            end
+        end
+    end)
+
     if default then cb(default) end
     return f
 end
 
-local function addTextbox(container, data)
+local function addTextbox(container, data, theme)
     local cb = data.Callback or function() end
-    local f = baseFrame(container, 40)
-    elemLabel(f, data.Name or "TextBox")
+    local f = baseFrame(container, 40, theme)
+    elemLabel(f, data.Name or "TextBox", theme)
     local boxBg = new("Frame", f, {
         Size = UDim2.new(0,130, 0, 26),
         Position = UDim2.new(1,-140, 0.5, -13),
@@ -367,8 +511,10 @@ local function addTextbox(container, data)
     return {Frame = f, Box = box}
 end
 
-function ScyLib.new(title, version)
+function ScyLib.new(title, version, themeName)
     if cg:FindFirstChild("ScyUI") then cg.ScyUI:Destroy() end
+
+    local theme = ScyLib.themes[themeName] or ScyLib.themes.Blue
 
     local lp = game:GetService("Players").LocalPlayer
     local scale = 0.6088 * (math.sqrt(
@@ -522,21 +668,39 @@ function ScyLib.new(title, version)
     end
 
     local minBtn   = topBtn("-", -65, theme.Text)
-    local closeBtn = topBtn("x", -33, theme.Danger)
+    local closeBtn = topBtn("x", -33, Color3.fromRGB(255,255,255))
 
+    local fullSize = UDim2.new(0.52,0, 0.62,0)
+    local miniSize = UDim2.new(0.52,0, 0, 42)
     local minimized = false
+    local hideable = {}
+    task.delay(0, function()
+        for _, c in main:GetChildren() do
+            if c ~= topbar and c ~= accentLine then
+                table.insert(hideable, c)
+            end
+        end
+    end)
+
     minBtn.MouseButton1Click:Connect(function()
         minimized = not minimized
         if minimized then
-            for _, c in main:GetChildren() do
-                if c ~= topbar and c ~= accentLine then c.Visible = false end
-            end
-            tween(main, 0.22, {Size=UDim2.new(0.52,0, 0,42)}):Play()
+            main.ClipsDescendants = true
+            tween(main, 0.22, {Size=miniSize}):Play()
+            task.delay(0.1, function()
+                for _, c in ipairs(hideable) do
+                    c.Visible = false
+                end
+            end)
             minBtn.Text = "+"
         else
-            tween(main, 0.22, {Size=UDim2.new(0.52,0, 0.62,0)}):Play()
-            task.delay(0.23, function()
-                for _, c in main:GetChildren() do c.Visible = true end
+            for _, c in ipairs(hideable) do
+                c.Visible = true
+            end
+            main.ClipsDescendants = false
+            tween(main, 0.22, {Size=fullSize}):Play()
+            task.delay(0.22, function()
+                main.ClipsDescendants = true
             end)
             minBtn.Text = "-"
         end
@@ -801,19 +965,19 @@ function ScyLib.new(title, version)
         local tab = {}
 
         function tab:Section(text)
-            return addSection(scroll, text)
+            return addSection(scroll, text, theme)
         end
         function tab:Button(data)
-            return addButton(scroll, data)
+            return addButton(scroll, data, theme)
         end
         function tab:Toggle(data)
-            return addToggle(scroll, data)
+            return addToggle(scroll, data, theme)
         end
         function tab:Dropdown(data)
-            return addDropdown(scroll, data)
+            return addDropdown(scroll, data, theme)
         end
         function tab:Textbox(data)
-            return addTextbox(scroll, data)
+            return addTextbox(scroll, data, theme)
         end
 
         return tab
